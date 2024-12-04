@@ -4,8 +4,9 @@
 
 - Vite
 - Reactjs
-- Styled-components
-- D3.js
+- Styled-components (CSS-in-JS libraries)
+- D3.js ( graph layout and rendering of nodes and links)
+- zustand (state management)
 
 ## Get Started
 
