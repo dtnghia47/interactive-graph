@@ -2,6 +2,12 @@ import styled from 'styled-components';
 
 import { countStore } from '@/store/countStore';
 
+const TempButton = () => {
+  const { count, increaseCount } = countStore();
+
+  return <Button onClick={() => increaseCount()}>Count is {count}</Button>;
+};
+
 const Button = styled.button`
   color: ${(props) => props.theme.fg};
   border: 2px solid ${(props) => props.theme.fg};
@@ -12,11 +18,5 @@ const Button = styled.button`
   padding: 0.25em 1em;
   border-radius: 3px;
 `;
-
-const TempButton = () => {
-  const { count, increaseCount } = countStore();
-
-  return <Button onClick={() => increaseCount()}>Count is {count}</Button>;
-};
 
 export default TempButton;
