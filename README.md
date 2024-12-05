@@ -9,6 +9,11 @@ Demo ENV: https://interactive-graph-nghiadinh.vercel.app/
   npm run dev
 ```
 
+```
+Please run `https` on the local
+https://localhost:3000/
+```
+
 ### Deployment
 
 ```
@@ -77,7 +82,10 @@ I have 4 solutions for this
 
 #### 4.4 Security
 
-- prevent potential security risks 👨‍💻(in progress)
+- prevent potential security risks ✅
+  - XSS: dangerouslySetInnerHTML + `dompurify`
+  - Content-Security-Policy
+  - We can add some header for this sandbox 🗒️
 
 ### 5. Constraints
 

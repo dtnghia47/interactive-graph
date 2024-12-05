@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import DOMPurify from 'dompurify';
 
 const NodeDetail = ({ data }) => {
   return (
@@ -15,7 +16,10 @@ const NodeDetail = ({ data }) => {
         <RowItemLabel>Name:</RowItemLabel> {data.name}
       </RowItem>
       <RowItem>
-        <RowItemLabel>Address:</RowItemLabel> {data.address}
+        <RowItemLabel>Address:</RowItemLabel>{' '}
+        <span
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(data.address) }}
+        />
       </RowItem>
 
       {/* TODO: We can render dynamic fields in here. It's depend on our expectation
