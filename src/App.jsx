@@ -36,6 +36,7 @@ function App() {
   };
 
   const handleShowInvalidData = () => {
+    // We will use isValidData to mock the error case for this demo
     setEnableInvalidData(true);
   };
 
@@ -47,26 +48,26 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Wrapper>
-        <div>
+      <AppWrapper>
+        <AppHeader>
           <TitlePage>Interactive Graph Visualization</TitlePage>
           <div>
             <Button
               onClick={loadMoreNode}
               disabled={isLoaded || enableInvalidData}
             >
-              Load More Node
+              Load More
             </Button>
             <Button
               onClick={handleShowInvalidData}
               disabled={enableInvalidData}
             >
-              Show Invalid Data
+              Show Error
             </Button>
             <Button onClick={handleResetNode}>Reset Node</Button>
           </div>
-        </div>
-        <WrapperContent>
+        </AppHeader>
+        <AppContent>
           {enableInvalidData && !isValidData ? (
             <ErrorMessage
               title='inIalid data!'
@@ -75,22 +76,37 @@ function App() {
           ) : (
             <Graph data={data} width={1000} height={500} />
           )}
-        </WrapperContent>
-      </Wrapper>
+        </AppContent>
+      </AppWrapper>
     </ThemeProvider>
   );
 }
 
-const Wrapper = styled.div`
+const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 24px;
+
+  @media (max-width: 768px) {
+    padding: 8px;
+  }
+`;
+const AppHeader = styled.div`
+  margin-bottom: 24px;
+
+  button + button {
+    margin-left: 20px;
+  }
 `;
 
-const WrapperContent = styled.div``;
+const AppContent = styled.div``;
 
 const TitlePage = styled.h1`
   color: ${(props) => props.theme.fg};
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 export default App;

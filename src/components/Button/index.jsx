@@ -13,10 +13,13 @@ const ButtonEl = styled.button`
   border: 2px solid ${(props) => props.theme.fg};
   background: ${(props) => props.theme.bg};
 
-  font-size: 1em;
-  margin: 1em;
+  font-size: 16px;
   padding: 0.25em 1em;
   border-radius: 3px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 
   &:disabled {
     opacity: 0.5;

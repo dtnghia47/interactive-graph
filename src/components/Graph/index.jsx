@@ -1,16 +1,17 @@
 import React, { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
-import { useTheme } from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 
 import NodeDetail from '@/components/NodeDetail';
 import Modal from '@/components/Modal';
 
-const Graph = ({ data, width = 600, height = 400 }) => {
+const Graph = ({ data, width, height }) => {
   const svgRef = useRef(null);
   const sideDrawerRef = useRef(null);
   const theme = useTheme();
   const [selectedNode, setSelectedNode] = useState(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [dimensions, setDimensions] = useState({ width, height });
 
   const handleClosePopup = () => {
     setSelectedNode(null);
@@ -62,7 +63,10 @@ const Graph = ({ data, width = 600, height = 400 }) => {
           .distance((d) => d.distance || 100)
       )
       .force('charge', d3.forceManyBody().strength(-300))
-      .force('center', d3.forceCenter(width / 2, height / 2));
+      .force(
+        'center',
+        d3.forceCenter(dimensions.width / 2, dimensions.height / 2)
+      );
 
     // Add links (edges)
     const link = g
@@ -150,7 +154,7 @@ const Graph = ({ data, width = 600, height = 400 }) => {
 
       node.attr('transform', (d) => `translate(${d.x},${d.y})`);
     });
-  }, [data, selectedNode]);
+  }, [data, selectedNode, dimensions]);
 
   // Detect clicks outside the drawer
   useEffect(() => {
@@ -171,13 +175,34 @@ const Graph = ({ data, width = 600, height = 400 }) => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const container = svgRef.current.parentElement;
+      setDimensions({
+        width: container.offsetWidth,
+        // We will fix height for graph
+        height:
+          container.offsetWidth > 1024
+            ? height
+            : container.offsetWidth > 768
+            ? 400
+            : 300,
+      });
+    };
+
+    // Listen for resize events
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <>
-      <svg
+      <GraphSvg
         ref={svgRef}
-        width={width}
-        height={height}
-        style={{ border: `1px solid ${theme.fg}`, cursor: 'grab' }}
+        width={dimensions.width}
+        height={dimensions.height}
       />
 
       {/* Side Drawer */}
@@ -193,5 +218,10 @@ const Graph = ({ data, width = 600, height = 400 }) => {
     </>
   );
 };
+
+const GraphSvg = styled.svg`
+  cursor: grab;
+  border: 1px solid ${(props) => props.theme.fg};
+`;
 
 export default Graph;

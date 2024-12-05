@@ -32,6 +32,15 @@ const ModalOverlay = styled.div`
   align-items: center;
   z-index: 1000;
   border-radius: 10px;
+
+  @media (max-width: 768px) {
+    top: unset;
+    bottom: 0;
+    left: 0
+    right: 0;
+    transform: unset;
+    width: 100%;
+  }
 `;
 
 const ModalContainer = styled.div`

@@ -45,7 +45,7 @@
 
 - Side Drawer ✅
 - Node and Edge Style ✅
-- Responsive 👨‍💻(in progress)
+- Responsive ✅
 
 #### 3.6 Error Handling
 
@@ -114,5 +114,10 @@ I have 4 solutions for this
 
 ### Capture Output
 
-![alt text](image.png)
-![alt text](image-1.png)
+![Show Detail](image-2.png)
+![Show More](image-3.png)
+![show Error Message](image-4.png)
+
+Mobile:
+![Mobile Version](image-5.png)
+![Show Detail onMobile](image-6.png)
