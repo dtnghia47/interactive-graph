@@ -19,6 +19,7 @@ const Modal = ({ isOpen, onClose, title, isBackdrop, children }) => {
   );
 };
 
+// TODO: add the animation for modal
 const ModalOverlay = styled.div`
   position: fixed;
   top: 50%;

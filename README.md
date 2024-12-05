@@ -29,8 +29,8 @@
 
 - Node Dragging ✅
 - Node Selection ✅
-  - Node Highlighting ✅
-  - Side Drawer ✅
+  - Node Highlighting
+  - Side Drawer
 - The drawer will close automatically ✅
   - select another node
   - press on close modal button
@@ -45,21 +45,24 @@
 
 - Side Drawer ✅
 - Node and Edge Style ✅
-- Responsiveness 👨‍💻(in progress)
+- Responsive 👨‍💻(in progress)
 
 #### 3.6 Error Handling
 
-- Show error message for invalid data 👨‍💻(in progress)
+- Show error message for invalid data ✅
 
 ### 4. Non-Functional Requirements
 
 #### 4.1 Performance
 
-I have 2 solution for this
+I have 4 solutions for this
 
-- zooom to support show overview and detail
-- lazy load node 👨‍💻(in progress)
-- expand the node the see the next one when we press on it 👨‍💻(in progress)
+- zooom to support show overview and detail. It's so hard if we see all node on a screen
+- lazy load node ✅
+  - the data should come from API. so We should add a pagination for this.
+  - I will mock a object to fake the function to show more nodes
+- expand the node the see the next one when we press on it 🗒️ (We can consider this one. It's depend on the output)
+- filter function 🗒️ (We can show a group with the filter).
 
 #### 4.2 Maintainability
 

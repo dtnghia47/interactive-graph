@@ -1,4 +1,4 @@
-export const data = {
+export const mockData = {
   nodes: [
     {
       id: 1,
@@ -39,3 +39,17 @@ export const data = {
     { source: 5, target: 3 },
   ],
 };
+
+export const nodesClone = {
+  nodes: [
+    {
+      id: 5,
+      name: 'Observo Clone',
+      logo: 'https://www.cloudmatos.ai/assets/images/observo_logo.webp',
+      address: 'address clone',
+    },
+  ],
+  links: [{ source: 5, target: 4 }],
+};
+
+export const invalidData = {};
