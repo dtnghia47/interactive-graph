@@ -2,6 +2,8 @@
 
 ### Get Started
 
+Demo ENV: https://interactive-graph-nghiadinh.vercel.app/
+
 ```
   npm install
   npm run dev
@@ -57,7 +59,7 @@
 
 I have 4 solutions for this
 
-- zooom to support show overview and detail. It's so hard if we see all node on a screen
+- zooom to support show overview and detail. It's so hard if we see all node on a screen ✅
 - lazy load node ✅
   - the data should come from API. so We should add a pagination for this.
   - I will mock a object to fake the function to show more nodes
